@@ -8,16 +8,12 @@ driver = webdriver.Chrome(ChromeDriverManager().install())
 #'html.parser' виды паксеров
 #features="lxml"
 
-driver.get("http://www.python.org")
+driver.get("https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D0%B3%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2")
 soup = BeautifulSoup(driver.page_source, features="lxml")
 
-print(soup.prettify())
+table = soup.find('table', class_='wikitable').find('tbody')
 
-for link in soup.find_all('a'):
-    url = link.get('href') #Берет все ссылки из ссылок
-    if 'https' in url or 'http' in url:
-        driver.get(url)
+counties = []
 
-    else:
-        driver.get('https://www.python.org' + url)
-    time.sleep(3)
+for i in table.findAll('td'):
+    print(i.text)
