@@ -11,7 +11,7 @@ html_doc = """
 
 <body>
     <ul>
-        <li>Главная страница</li>
+        <li class = 'pip'>Главная страница</li>
         <li>Товары</li>
         <li>Контакты</li>
         <li>Корзина</li>
@@ -29,7 +29,16 @@ html_doc = """
 """
 
 soup = BeautifulSoup(html_doc, 'html.parser')
-firstSoupeLet = soup.find('div', class_='main')
-print(firstSoupeLet.prettify())
+# firstSoupeLet = soup.findAll('div')
+# secondSoupe = soup.find('input', _class_="input-form")
 
 
+# a = soup.findAll('li')
+# for i in a:
+#     print(i.text)
+
+# i = soup.find('li', class_='pip').text
+# print(i)
+
+# i = soup.find('li', class_='pip')
+# print(i.text)
