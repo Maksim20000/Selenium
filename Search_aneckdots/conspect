@@ -9,4 +9,11 @@
     5 - конец
     2 = шаг
 
-5)
+5) Атребуты = class и id
+6) \n - переход на новую строчку
+
+7) dump - для того чтобы записать
+   load  = чтобы прочитать
+   import pickle
+   favcolor = pickle.load(open("anecs.pickle", "rb"))
+    print(favcolor)
