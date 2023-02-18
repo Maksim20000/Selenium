@@ -1,1 +1,12 @@
-уукукукукуфкуку
+1) f('fdjjsdflsd{имя переменной}') - форматированная функция
+    name = 'привте'
+    print(f'прив{name}')
+
+2) Next.js популярное чтото
+3) driver = webdriver.Chrome(ChromeDriverManager().install())
+4) for i in range(1, 5, 2):
+    1 - начало
+    5 - конец
+    2 = шаг
+
+5)
