@@ -32,7 +32,7 @@
 #
 # with open('anecs.pickle', 'wb') as f:
 #     pickle.dump(jockes, f)
-#
+
 
 #Код чтения файла  pickle:
 
