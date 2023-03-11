@@ -1,14 +1,12 @@
 import requests
-def run_code(code):
-    return eval(code)
-
-
 def get_html():
-    url = 'https://www.kodland.org/'
+    url = 'https://www.youtube.com/'
     res = requests.get(url)
     return res
 
-def testHome():
-    assert run_code('2+2') == 4
-    assert run_code('2+3') == 5
+# getll_html = get_html()
+#
+# print(getll_html)
 
+def test_get_html():
+    assert get_html().status_code == 200
