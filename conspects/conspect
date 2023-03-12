@@ -53,6 +53,7 @@
 
 14) чтобы сделать виртуальное окружение мы используем команду
     устанавливаем с помощью команды
+    python -m venv env
 
     чтобы назад выпрыгнуть нужно написть программу
     cd ..
@@ -72,9 +73,19 @@
     pip freeze - показывает все установленные файлы
     pip uninstall pytest - удаляет
 
+    ctrl + c = выходит из процесса
+
 
 fork - сохраняет файл в свой список реаозиториев
 git branch название ветки - создает ветку
 
 15) eval - свойство для перевода строк в числа
     https://pypi.org/ - все пипы и тд
+
+16) from selenium.webdriver.common.by import By
+        By.NAME - ищем по атрибутам
+        By.TAG_NAME - ищем по тегам
+
+    password = driver.find_element(By.NAME, 'password')
+    password.click() - кликает
+    password.send_keys('admin') - вводит в input
