@@ -17,8 +17,8 @@ password.click()
 password.send_keys('admi')
 
 
-error = driver.find_element(By.CLASS_NAME, 'error')
-if error:
+error = driver.find_element(By.CLASS_NAME, 'login-form')
+if not error:
     login = driver.find_element(By.NAME, 'login')
     login.click()
     login.send_keys('admin')
