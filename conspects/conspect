@@ -85,7 +85,16 @@ git branch название ветки - создает ветку
 16) from selenium.webdriver.common.by import By
         By.NAME - ищем по атрибутам
         By.TAG_NAME - ищем по тегам
+        By.XPATH - удобно копировать ссылочку с сайта в помошнике нажимаю
+                правой кнопкой мыши и копировать потом на копировать не полностью
+                после вставляю куда нужно
+                в PluseTask - passHomeWork
 
     password = driver.find_element(By.NAME, 'password')
     password.click() - кликает
     password.send_keys('admin') - вводит в input
+
+    btn_on_task = driver.find_element(By.XPATH, '/html/body/section[1]/div/div/div[1]/a/button')
+
+
+17)
