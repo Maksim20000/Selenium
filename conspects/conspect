@@ -97,4 +97,22 @@ git branch название ветки - создает ветку
     btn_on_task = driver.find_element(By.XPATH, '/html/body/section[1]/div/div/div[1]/a/button')
 
 
-17)
+17) Для открытия страницы с проектом, давайте проанализируем его URL
+
+        https://hub.kodland.org/ru/project/95077
+
+        https://hub.kodland.org - основа URL, которая у всех проектов одинаковая
+
+        en/ru - язык страницы. К нашим целям особого значения не имеет, оставим для простоты ru
+
+        project - маршрут, обязательный для всех проектов
+
+        95077 - уникальный идентификатор проекта.
+
+18) чтобы не полностью открывать сайт нужно прописать команду
+        from selenium.webdriver.chrome.options import Options
+
+        chrome_options = Options()
+        chrome_options.add_argument("--headless")
+
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)

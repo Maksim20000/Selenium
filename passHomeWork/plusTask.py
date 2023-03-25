@@ -9,19 +9,23 @@ driver.get("https://platform.kodland.org/auth/")
 
 
 
-login = driver.find_element(By.ID, 'login')
-time.sleep(1)
+# login   //*[@id="login"]
+# password    //*[@id="password"]
+# btn   //*[@id="app"]/div/div[2]/div[2]/div/div/form/button
+
+login = driver.find_element(By.XPATH, '//*[@id="login"]')
 login.click()
 login.send_keys(login2)
 
-passWord = driver.find_element(By.ID, 'password')
-passWord.click()
-passWord.send_keys(passWord2)
+passWord3 = driver.find_element(By.XPATH, '//*[@id="password"]')
+passWord3.click()
+passWord3.send_keys(passWord2)
 
 
-btn = driver.find_element(By.CLASS_NAME, 'btn')
-btn.click()
-time.sleep(2)
+btn_reg = driver.find_element(By.XPATH, '//*[@id="app"]/div/div[2]/div[2]/div/div/form/button')
+btn_reg.click()
+
+
 
 btn_on_task = driver.find_element(By.XPATH, '/html/body/section[1]/div/div/div[1]/a/button')
 btn_on_task.click()
@@ -34,6 +38,8 @@ time.sleep(2)
 
 btn_task_onHref = driver.find_element(By.XPATH,'//*[@id="test1"]/ul/li[27]/div[2]/div/div[1]/ul/li[6]/div/a')
 btn_task_onHref.click()
+
+driver.get("https://platform.kodland.org/ru/task_56519/")
 
 
 # Сдать задание
