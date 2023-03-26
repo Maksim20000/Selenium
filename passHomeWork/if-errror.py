@@ -35,10 +35,11 @@ def func2(loginOriginal, passwordOriginal):
 
 func2("admin","some")
 
-if driver.find_element(By.XPATH,  '//*[@id="app"]/div/div[2]/div[2]/div/div/div[2]'):
-    login.clear()
 
-    password.clear()
+if driver.find_element(By.XPATH,  '//*[@id="app"]/div/div[2]/div[2]/div/div/div[2]'):
+    driver.find_element(By.XPATH, '//*[@id="login"]').send_keys(' ')
+    driver.find_element(By.XPATH, '//*[@id="password"]').send_keys(' ')
+    print('Web storm top')
     func2(login2, passWord2)
 
 element = driver.find_element(By.CLASS_NAME,  'contact')

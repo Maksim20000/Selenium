@@ -116,3 +116,7 @@ git branch название ветки - создает ветку
         chrome_options.add_argument("--headless")
 
         driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+
+19) чтобы список разделять на несколько слов нужно использовать метод split
+    project_ids = input('Пожалуйста введите project IDs разделенные пробелом: ')
+    project_ids = project_ids.split(' ')
