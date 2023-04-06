@@ -3,57 +3,70 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
+from reduserce.filmRedusors import filmRedusers
+from reduserce.helpRedusor import helpRedusor
 
 while True:
     command = input('Введите команду которую вы хотите ввести (Команда /help предоставляет все команды): ')
     if command == '/help':
-        print('В моем проекте есть 3 команды:')
-        time.sleep(1)
-        print('1) /helpGPT - команда которая отправляет сообщение chatgpt')
-        time.sleep(1)
-        print('2) /film выбирает лучшие фильмы для просмотра')
-        time.sleep(1)
-        print('не знаю')
+        helpRedusor()
 
     elif command == '/film':
-        driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver.get('https://www.kinoafisha.info/rating/movies/')
+        numFilms = int(input('Топ скольки фильмов вы хотите?(до 1000): '))
+        filmRedusers(numFilms)
 
-        soup = BeautifulSoup(driver.page_source, 'html.parser')
-        all_movies = soup.findAll('a', class_='movieItem_title')
-
-        list_all_movies = []
-        for i in all_movies:
-            list_all_movies.append(i)
-
-        print(list_all_movies)
-
-    elif command == '/helpGPT':
-        print('Я вам предоставляю ChatGPT телеграмм, вам прийдется зарегистрироваться через телефон')
+    elif command == '/dlVidio':
+        print('Я вам предоставляю возможность скачать видио с ютуба')
         time.sleep(1)
-        # регистрация
-        driver = webdriver.Chrome(ChromeDriverManager().install())
-        driver.get('https://web.telegram.org/k/')
-        time.sleep(10)
-
-        btnOnClickLogPhoneNum = driver.find_element(By.XPATH, '//*[@id="auth-pages"]/div/div[2]/div[3]/div/div[2]/button[1]')
+        print('Если вам понадобится инструкция как копировать ссылку на видио то введите: 0')
         time.sleep(1)
-        btnOnClickLogPhoneNum.click()
+        print('А если у вас уже есть ссылка то нажмите на 1')
+#       Выбор знает ли человк как качать видио
+        searchYesOrNo = int(input('Введите, пожалуйста число: '))
+        if searchYesOrNo == 0:
+            print('Вам нужно зайти на видио, которое вы хотите скачать')
+            print('Под этим видио будет кнопка поделиться')
+            print('Высвечивается ссылка, которую нужно вставить')
+    #       Функция с открытием бота
 
-        phoneNumber = int(input('Введите маш номер телефона без +7'))
-        phoneNumBtn = driver.find_element(By.XPATH, '//*[@id="auth-pages"]/div/div[2]/div[2]/div/div[3]/div[2]/div[1]')
-        phoneNumBtn.send_keys(phoneNumber)
+        elif searchYesOrNo == 1:
+            hrefVidio = input('Введите ссылку на видио: ')
 
-        # Кнопка для того чтобы перейти к пункту где подтвержение сообщением
-        nextLevelClick = driver.find_element(By.XPATH, '//*[@id="auth-pages"]/div/div[2]/div[2]/div/div[3]/button[1]')
-        nextLevelClick.click()
-        time.sleep(2)
+            driver = webdriver.Chrome(ChromeDriverManager().install())
+            driver.get('https://ru.savefrom.net/1-%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D0%B9-%D1%81%D0%BF%D0%BE%D1%81%D0%BE%D0%B1-%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D1%81-youtube-160/')
+            # soup = BeautifulSoup(driver.page_source, features='lxml')
 
-        # куда я ввожу код подтверждения
-        message_input = driver.find_element(By.XPATH, '//*[@id="auth-pages"]/div/div[2]/div[4]/div/div[3]/div/input')
-        code_auth = int(input('Введите код подтверждения: '))
-        message_input.click()
-        message_input.send_keys(code_auth)
+            # Кнопка, которая ищет по ссылке видио
+            searchVidio = driver.find_element(By.XPATH, '//*[@id="sf_url"]')
+            searchVidio.send_keys(hrefVidio)
+
+            buttonSearchVidio = driver.find_element(By.XPATH, '//*[@id="sf_submit"]')
+            buttonSearchVidio.click()
+            time.sleep(5)
+
+            downloadVidio = driver.find_element(By.XPATH, '//*[@id="sf_result"]/div/div[1]/div[2]/div[2]/div[1]/a')
+            downloadVidio.click()
+
+            time.sleep(1)
+            print('20%')
+            time.sleep(1)
+            print('30%')
+            time.sleep(1)
+            print('40%')
+            time.sleep(1)
+            print('50%')
+            time.sleep(1)
+            print('70%')
+            time.sleep(1)
+            print('90%')
+            time.sleep(1)
+            print('99%')
+            time.sleep(4)
+            print('100%')
 
 
-        #https://t.me/GPT4Telegrambot - ссылка на тг
+
+    else:
+        print('Увы, но такой команды нет')
+
+
