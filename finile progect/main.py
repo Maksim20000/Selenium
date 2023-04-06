@@ -54,3 +54,6 @@ while True:
         code_auth = int(input('Введите код подтверждения: '))
         message_input.click()
         message_input.send_keys(code_auth)
+
+
+        #https://t.me/GPT4Telegrambot - ссылка на тг
